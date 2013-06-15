@@ -25,4 +25,4 @@
     remote = red
 
 [push]
-	default = simple
+    default = simple
