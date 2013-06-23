@@ -16,4 +16,5 @@ alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-ti
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT='%F %T '
 export EDITOR=/usr/bin/vim
-export KNIFE_HOME=/home/miguel.fonseca/.chef
+export KNIFE_HOME=/Users/miguel.fonseca/.chef
+export P4CONFIG=/Users/miguel.fonseca/.p4config
