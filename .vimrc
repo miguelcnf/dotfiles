@@ -13,7 +13,7 @@ set incsearch          " Incremental search
 set hlsearch           " Highlight search results
 set list               " Show invisibles
 set listchars=tab:▸-
-"set mouse=a            " Enable mouse usage (all modes) in terminals
+set mouse=a            " Enable mouse usage (all modes) in terminals
 "set number             " Enable line numbers
 set ruler              " show the cursor position all the time
 set scrolloff=3        " Never lean to the top or bottom of the window
@@ -55,3 +55,6 @@ let c_space_errors=1
 colorscheme solarized
 
 au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2
+
+" Disable auto-comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
