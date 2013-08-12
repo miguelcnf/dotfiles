@@ -1,3 +1,4 @@
+set nrformats-=octal   " Remove octal numbering
 set nocompatible       " Use Vim defaults instead of 100% vi compatibility
 set autoindent         " Auto indent new lines
 set smartindent        " Make autoindent smarter
