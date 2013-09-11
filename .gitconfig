@@ -10,6 +10,7 @@
     b = branch
     s = status -sb
     p = push
+    d = diff
     ci = commit
     co = checkout
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
