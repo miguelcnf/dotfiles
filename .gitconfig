@@ -8,8 +8,9 @@
 [alias]
     l = log --graph --decorate --pretty=format:'%h %Cred %ad %Cgreen %s%d %Cblue %an' --date=short --abbrev-commit --all
     b = branch
+    br = branch
     s = status -sb
-    p = push
+    st = status -sb
     d = diff
     ci = commit
     co = checkout
