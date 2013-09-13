@@ -6,12 +6,9 @@
     editor = vim
 
 [alias]
-    l = log --graph --decorate --pretty=format:'%h %Cred %ad %Cgreen %s%d %Cblue %an' --date=short --abbrev-commit --all
-    b = branch
+    hist = log --graph --decorate --pretty=format:'%h %Cred %ad %Cgreen %s%d %Cblue %an' --date=short --abbrev-commit --all
     br = branch
-    s = status -sb
     st = status -sb
-    d = diff
     ci = commit
     co = checkout
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
