@@ -19,6 +19,7 @@ export HISTTIMEFORMAT='%F %T '
 export EDITOR=/usr/bin/vim
 export KNIFE_HOME=/Users/miguel.fonseca/.chef
 export P4CONFIG=/Users/miguel.fonseca/.p4config
+export LC_ALL="en_US.UTF-8"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
