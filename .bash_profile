@@ -2,6 +2,7 @@
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+PATH=$(brew --prefix)/bin:$PATH
 
 # Alias
 alias grep='grep --color=auto'
