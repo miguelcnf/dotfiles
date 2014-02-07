@@ -1,0 +1,42 @@
+# Box baseline
+---
+tasks:
+  homebrew:
+    formulas:
+    - wget
+    - brew-cask
+    - ansible
+    - bash-completion
+    - git
+    - htop-osx
+    - midnight-commander
+    - mtr
+    - node
+    - pow
+    - python
+    - readline
+    - ssh-copy-id
+    - the_silver_searcher
+    - tree
+    - watch
+    - wget
+  gem:
+    packages:
+    - bropages
+    - bundler
+    - chef
+    - fpm
+    - pry
+  pip:
+    packages:
+    - docopt
+  dotfiles:
+    repo: miguelcnf/dotfiles
+    list:
+    - .vimrc
+    - .rspec
+    - .gitconfig
+    - .bash_profile
+    - .ansible.cfg
+    - .amethyst
+
