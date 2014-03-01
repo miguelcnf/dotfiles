@@ -27,9 +27,11 @@ tasks:
     - chef
     - fpm
     - pry
+    - rubocop
   pip:
     packages:
     - docopt
+    - pylint
   dotfiles:
     repo: miguelcnf/dotfiles
     list:
