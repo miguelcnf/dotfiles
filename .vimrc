@@ -72,11 +72,11 @@ execute pathogen#infect()
 colorscheme solarized
 set background=dark
 
-" Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Airline
 set laststatus=2
+let g:airline_powerline_fonts=1
 
-" Workaround for leaving insert mode delay on Powerline
+" Workaround for leaving insert mode delay with statusline active
 if ! has('gui_running')
   set ttimeoutlen=10
   augroup FastEscape
@@ -86,3 +86,8 @@ if ! has('gui_running')
   augroup END
 endif
 
+" Signify
+let g:signify_vcs_list=['git','svn']
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
