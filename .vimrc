@@ -29,8 +29,8 @@ set wildmode=list:longest " Show all alternatives and complete furtherest possib
 set completeopt=menuone,longest,preview " Better completion menu
 
 if version >= 703
-  " Vertical line on column 80
-  set colorcolumn=80
+  " Vertical line on column 120
+  set colorcolumn=120
   " Persistent undo history
   set undofile
   set undodir=~/.vim/backup
