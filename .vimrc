@@ -91,3 +91,6 @@ let g:signify_vcs_list=['git','svn']
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" NERDTree
+let NERDTreeShowHidden=1
