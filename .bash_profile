@@ -13,6 +13,10 @@ alias ll='ls -lG'
 alias ls='ls -G'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
+# Hack for Finder
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
 # Exports
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT='%F %T '
