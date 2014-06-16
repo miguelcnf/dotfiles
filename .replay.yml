@@ -29,6 +29,7 @@ tasks:
     - pry
     - pry-doc
     - pry-nav
+    - pry-stack_explorer
     - rubocop
   pip:
     packages:
