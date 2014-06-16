@@ -27,6 +27,8 @@ tasks:
     - chef
     - fpm
     - pry
+    - pry-doc
+    - pry-nav
     - rubocop
   pip:
     packages:
