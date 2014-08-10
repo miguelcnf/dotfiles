@@ -43,5 +43,5 @@ tasks:
     - .gitconfig
     - .bash_profile
     - .ansible.cfg
-    - .amethyst
+    - .mavenrc
 

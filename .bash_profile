@@ -33,3 +33,6 @@ export P4CONFIG=/Users/miguel.fonseca/.p4config
 
 # Random pass generator
 passgen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | shasum | base64 | head -c 15;echo; }
+
+# Maven
+PATH=$PATH:/Users/miguel.fonseca/Applications/apache-maven-3.2.2/bin
