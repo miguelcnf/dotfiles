@@ -24,7 +24,6 @@ tasks:
     packages:
     - bropages
     - bundler
-    - chef
     - fpm
     - pry
     - pry-doc
