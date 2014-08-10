@@ -36,3 +36,4 @@ passgen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | 
 
 # Maven
 PATH=$PATH:/Users/miguel.fonseca/Applications/apache-maven-3.2.2/bin
+export M2_HOME=/Users/miguel.fonseca/Applications/apache-maven-3.2.2
