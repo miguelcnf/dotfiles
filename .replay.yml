@@ -20,6 +20,7 @@ tasks:
     - tree
     - watch
     - wget
+    - shellcheck
   gem:
     packages:
     - bropages
@@ -30,6 +31,7 @@ tasks:
     - pry-nav
     - pry-stack_explorer
     - rubocop
+    - veewee
   pip:
     packages:
     - docopt
