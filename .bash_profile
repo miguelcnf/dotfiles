@@ -1,3 +1,21 @@
+# Custom prompt
+function __prompt_command() {
+  local EXIT="$?"
+
+  # Colors
+  local Def='\[\e[0m\]' # Default
+  local Red='\[\e[0;31m\]' # Last exit code != 0
+  local Clean='\[\e[0;36m\]' # Git repo is clean
+  local Dirty='\[\e[0;31m\]' # Git repo is dirty
+
+  # Get git repo status
+  [ -d .git ] && git status --ignore-submodules | grep -q "nothing to commit" && local Gitst=$Clean || local Gitst=$Dirty
+
+  # Build the prompt
+  [ $EXIT != 0 ] && PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]${Red}\$ ${Def}" || PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]\$ ${Def}"
+}
+export PROMPT_COMMAND=__prompt_command
+
 # Locale
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
