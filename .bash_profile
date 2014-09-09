@@ -9,7 +9,7 @@ function __prompt_command() {
   local Dirty='\[\e[0;31m\]' # Git repo is dirty
 
   # Get git repo status
-  [ -d .git ] && git status --ignore-submodules | grep -q "nothing to commit" && local Gitst=$Clean || local Gitst=$Dirty
+  [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 && git status --ignore-submodules | grep -q "nothing to commit" && local Gitst=$Clean || local Gitst=$Dirty
 
   # Build the prompt
   [ $EXIT != 0 ] && PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]${Red}\$ ${Def}" || PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]\$ ${Def}"
