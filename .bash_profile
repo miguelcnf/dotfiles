@@ -1,19 +1,35 @@
 # Custom prompt
 function __prompt_command() {
-  local EXIT="$?"
+ # Get last command exist status
+ local last_cmd_exit=$?
 
-  # Colors
-  local Def='\[\e[0m\]' # Default
-  local Red='\[\e[0;31m\]' # Last exit code != 0
-  local Clean='\[\e[0;36m\]' # Git repo is clean
-  local Dirty='\[\e[0;31m\]' # Git repo is dirty
+ # Define Colors
+ local Def='\[\e[0m\]' # Default
+ local Red='\[\e[0;31m\]' # Last exit code != 0
+ local Clean='\[\e[0;36m\]' # Git repo is clean
+ local Dirty='\[\e[0;31m\]' # Git repo is dirty
 
-  # Get git repo status
-  [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 && git status --ignore-submodules | grep -q "nothing to commit" && local Gitst=$Clean || local Gitst=$Dirty
+ # Paint the $ char based on last command exit status
+ [ $last_cmd_exit == 0 ] && local dollar="\$ " || local dollar="${Red}\$ ${Def}"
 
-  # Build the prompt
-  [ $EXIT != 0 ] && PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]${Red}\$ ${Def}" || PS1="[\u@\h \W${Gitst}$(__git_ps1)${Def}]\$ ${Def}"
+ # Does current dir belongs to a git repo ?
+ git rev-parse --git-dir >/dev/null 2>&1
+ local git_repo=$?
+
+ # Run git status
+ [ $git_repo == 0 ] && local git_status=$(git status --ignore-submodules)
+
+ # Get git repo commit status
+ [ $git_repo == 0 ] && echo $git_status | grep -q "nothing to commit" && local Gitcst=$Clean || local Gitcst=$Dirty
+
+ # Get git repo push status
+ [ $git_repo == 0 ] && local Gitahead=$(echo $git_status | grep "Your branch" | grep -v "up-to-date" | sed -E 's/.*([[:digit:]]+).*/\1/')
+ [ ! -z $Gitahead ] && Gitahead=" ${Red}+${Gitahead}${Def}"
+
+ # Build the prompt
+  PS1="[\u@\h \W${Gitcst}$(__git_ps1)${Def}${Gitahead}]$dollar"
 }
+
 export PROMPT_COMMAND=__prompt_command
 
 # Locale
