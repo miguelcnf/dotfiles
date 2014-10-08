@@ -94,3 +94,6 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " NERDTree
 let NERDTreeShowHidden=1
+
+" JavaScript libraries syntax
+let g:used_javascript_libs = 'angularjs'
