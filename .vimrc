@@ -62,6 +62,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 au BufReadPost svn-commit*.tmp exe "normal! gg"
 au BufReadPost COMMIT_EDITMSG* exe "normal! gg"
 
+" Set filetypes
+au BufRead,BufNewFile *.json set filetype=json
+
 " Load plugins
 filetype plugin indent on
 
@@ -97,3 +100,4 @@ let NERDTreeShowHidden=1
 
 " JavaScript libraries syntax
 let g:used_javascript_libs = 'angularjs'
+
