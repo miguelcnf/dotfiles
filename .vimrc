@@ -94,6 +94,8 @@ let g:signify_vcs_list=['git','svn']
 
 " Syntastic
 let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_id_checkers = 1
 " let g:syntastic_quiet_messages = { "type": "style" }
 
 " Supertab
