@@ -1,5 +1,6 @@
 " vimrc
 
+set modelines=5
 set nrformats-=octal   " Remove octal numbering
 set nocompatible       " Use vim defaults instead of 100% vi compatibility
 set autoindent         " Auto indent new lines
