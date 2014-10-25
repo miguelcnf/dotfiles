@@ -45,4 +45,22 @@ tasks:
     - .bash_profile
     - .ansible.cfg
     - .mavenrc
+  pathogen:
+    plugins:
+      - { repo: 'mhinz/vim-signify', name: 'vim-signify' }
+      - { repo: 'mhinz/vim-startify', name: 'vim-startify' }
+      - { repo: 'chrisbra/Recover.vim', name: 'recover' }
+      - { repo: 'vim-scripts/TaskList.vim', name: 'tasklist' }
+      - { repo: 'epmatsw/ag.vim', name: 'ag' }
+      - { repo: 'Raimondi/delimitMate', name: 'delimitmate' }
+      - { repo: 'othree/javascript-libraries-syntax.vim', name: 'javascript-libraries-syntax' }
+      - { repo: 'scrooloose/nerdtree', name: 'nerdtree' }
+      - { repo: 'ervandew/supertab', name: 'supertab' }
+      - { repo: 'scrooloose/syntastic', name: 'syntastic' }
+      - { repo: 'bling/vim-airline', name: 'vim-airline' }
+      - { repo: 'burnettk/vim-angular', name: 'vim-angular' }
+      - { repo: 't9md/vim-chef', name: 'vim-chef' }
+      - { repo: 'tpope/vim-fugitive', name: 'vim-fugitive' }
+      - { repo: 'pangloss/vim-javascript', name: 'vim-javascript' }
+      - { repo: 'elzr/vim-json', name: 'vim-json' }
 
