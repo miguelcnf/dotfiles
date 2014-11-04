@@ -65,8 +65,8 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT='%F %T '
 export EDITOR=/usr/bin/vim
-export KNIFE_HOME=/Users/miguel.fonseca/.chef
-export P4CONFIG=/Users/miguel.fonseca/.p4config
+export KNIFE_HOME=~/.chef
+export P4CONFIG=~/.p4config
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -75,8 +75,8 @@ export P4CONFIG=/Users/miguel.fonseca/.p4config
 passgen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | shasum | base64 | head -c 15;echo; }
 
 # Maven
-PATH=$PATH:/Users/miguel.fonseca/Applications/apache-maven-3.2.2/bin
-export M2_HOME=/Users/miguel.fonseca/Applications/apache-maven-3.2.2
+PATH=$PATH:~/Applications/apache-maven-3.2.2/bin
+export M2_HOME=~/Applications/apache-maven-3.2.2
 
 # ChefDK
 PATH=/opt/chefdk/bin:$PATH
