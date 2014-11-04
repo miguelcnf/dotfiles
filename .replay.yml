@@ -4,7 +4,6 @@ tasks:
   homebrew:
     formulas:
     - wget
-    - brew-cask
     - ansible
     - bash-completion
     - git
@@ -12,7 +11,6 @@ tasks:
     - midnight-commander
     - mtr
     - node
-    - pow
     - python
     - readline
     - ssh-copy-id
@@ -23,15 +21,12 @@ tasks:
     - shellcheck
   gem:
     packages:
-    - bropages
     - bundler
     - fpm
     - pry
-    - pry-doc
     - pry-nav
-    - pry-stack_explorer
     - rubocop
-    - veewee
+    - rspec
   pip:
     packages:
     - docopt
