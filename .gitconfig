@@ -13,6 +13,7 @@
     ci = commit
     co = checkout
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
+    info = remote show origin
 
 [color]
     ui = auto
