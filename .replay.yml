@@ -59,4 +59,5 @@ tasks:
       - { repo: 'pangloss/vim-javascript', name: 'vim-javascript' }
       - { repo: 'elzr/vim-json', name: 'vim-json' }
       - { repo: 'altercation/vim-colors-solarized', name: 'vim-colors-solarized' }
+      - { repo: 'tpope/vim-surround.git', name: 'vim-surround' }
 
