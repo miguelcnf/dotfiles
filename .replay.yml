@@ -27,6 +27,7 @@ tasks:
     - pry-nav
     - rubocop
     - rspec
+    - mdl
   pip:
     packages:
     - docopt
