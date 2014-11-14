@@ -11,6 +11,7 @@ tasks:
     - midnight-commander
     - mtr
     - node
+    - phantomjs
     - python
     - readline
     - ssh-copy-id
