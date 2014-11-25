@@ -75,8 +75,8 @@ export P4CONFIG=~/.p4config
 keygen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | shasum | base64 | head -c 15;echo; }
 
 # Maven
-PATH=$PATH:~/Applications/apache-maven-3.2.2/bin
-export M2_HOME=~/Applications/apache-maven-3.2.2
+PATH=$PATH:~/Applications/apache-maven-3.2.3/bin
+export M2_HOME=~/Applications/apache-maven-3.2.3
 
 # ChefDK
 PATH=/opt/chefdk/bin:$PATH
