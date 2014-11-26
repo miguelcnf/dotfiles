@@ -33,6 +33,7 @@ tasks:
     packages:
     - docopt
     - pylint
+    - aws
   dotfiles:
     repo: miguelcnf/dotfiles
     list:
