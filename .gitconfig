@@ -14,6 +14,7 @@
     co = checkout
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
     info = remote show origin
+    update = remote update origin --prune
 
 [color]
     ui = auto
