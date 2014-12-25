@@ -80,3 +80,7 @@ export M2_HOME=~/Applications/apache-maven-3.2.3
 
 # ChefDK
 PATH=/opt/chefdk/bin:$PATH
+
+# GO
+export GOPATH=~/Projects/go
+PATH=$PATH:$GOPATH/bin
