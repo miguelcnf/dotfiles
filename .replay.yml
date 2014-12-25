@@ -25,7 +25,7 @@ tasks:
     - bundler
     - fpm
     - pry
-    - pry-nav
+    - pry_debug
     - rubocop
     - rspec
     - mdl
@@ -34,6 +34,7 @@ tasks:
     - docopt
     - pylint
     - aws
+    - stormssh
   dotfiles:
     repo: miguelcnf/dotfiles
     list:
