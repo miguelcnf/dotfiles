@@ -19,6 +19,7 @@ set list               " Show invisibles
 set listchars=tab:▸-   " Set tab icon
 "set mouse=a            " Enable mouse usage (all modes) in terminals
 set number             " Enable line numbers
+set relativenumber     " Relative numbers
 set ruler              " show the cursor position all the time
 set scrolloff=3        " Never lean to the top or bottom of the window
 set showcmd            " Show (partial) command in status line.
