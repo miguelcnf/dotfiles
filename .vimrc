@@ -74,8 +74,8 @@ filetype plugin indent on
 execute pathogen#infect()
 
 " Solarized
-colorscheme solarized
-set background=dark
+"colorscheme solarized
+"set background=dark
 
 " Airline
 set laststatus=2
