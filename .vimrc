@@ -24,7 +24,7 @@ set ruler              " show the cursor position all the time
 set scrolloff=3        " Never lean to the top or bottom of the window
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
-set softtabstop=2 tabstop=2 shiftwidth=2 expandtab " Default whitespace settings
+set softtabstop=4 tabstop=4 shiftwidth=4 expandtab " Default whitespace settings
 set viminfo='20,\"50   " read/write a .viminfo file, don't store more than 50 lines of registers
 set wildmenu           " Enhanced command-line completion.
 set wildmode=list:longest " Show all alternatives and complete furtherest possible.
@@ -99,6 +99,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_id_checkers = 1
 " let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
