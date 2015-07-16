@@ -15,6 +15,7 @@
     serve = daemon --reuseaddr --base-path=. --export-all --verbose
     info = remote show origin
     update = remote update origin --prune
+    fetchandprune = fetch --all --prune
 
 [color]
     ui = auto
