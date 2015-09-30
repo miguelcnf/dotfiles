@@ -68,8 +68,9 @@ export EDITOR=/usr/bin/vim
 export KNIFE_HOME=~/.chef
 export P4CONFIG=~/.p4config
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Ruby
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Random pass generator
 keygen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | shasum | base64 | head -c 15;echo; }
@@ -84,3 +85,7 @@ PATH=/opt/chefdk/bin:$PATH
 # GO
 export GOPATH=~/Projects/go
 PATH=$PATH:$GOPATH/bin
+
+# Node
+export NVM_DIR="/Users/miguelfonseca/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
