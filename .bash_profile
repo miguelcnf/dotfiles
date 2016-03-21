@@ -53,13 +53,15 @@ alias grep='grep --color=auto'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ll='ls -lG'
-alias ls='ls -G'
+alias ll='ls -Gpalh'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 # Hack for Finder
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+# Hack for chefdk
+alias chef_path='PATH=/opt/chefdk/bin:$PATH'
 
 # Exports
 export HISTCONTROL=ignoredups
@@ -80,7 +82,7 @@ PATH=$PATH:~/Applications/apache-maven-3.2.3/bin
 export M2_HOME=~/Applications/apache-maven-3.2.3
 
 # ChefDK
-PATH=/opt/chefdk/bin:$PATH
+PATH=$PATH:/opt/chefdk/bin
 
 # GO
 export GOPATH=~/Projects/go
