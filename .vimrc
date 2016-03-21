@@ -110,3 +110,5 @@ let g:used_javascript_libs = 'angularjs'
 " Explore
 let g:netrw_liststyle=3
 
+" Ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
