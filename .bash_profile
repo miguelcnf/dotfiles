@@ -1,5 +1,5 @@
 # Start an HTTP server from a directory
-function server() {
+function http_server() {
   local port="${1:-8000}"
   open "http://localhost:$port"
   python -mSimpleHTTPServer "$port"
@@ -37,6 +37,19 @@ function __prompt_command() {
   PS1="[\u@\h \W${Gitcst}$(__git_ps1)${Def}${Gitahead}]$dollar"
 }
 export PROMPT_COMMAND=__prompt_command
+
+function __kube_prompt() {
+  local Def='\[\e[0m\]' # Default
+  local Clean='\[\e[0;36m\]'
+
+  kube_context=$(grep current-context ~/.kube/config | awk -F ' ' '{print $2}')
+
+  # Build the prompt
+  PS1="[\u@\h \W ${Clean}($kube_context)${Def}]\$ "
+  unalias kubeshell 2>/dev/null
+}
+
+alias kubeshell='export PROMPT_COMMAND=__kube_prompt'
 
 # Locale
 export LC_CTYPE=en_US.UTF-8
@@ -82,7 +95,7 @@ PATH=$PATH:~/Applications/apache-maven-3.2.3/bin
 export M2_HOME=~/Applications/apache-maven-3.2.3
 
 # ChefDK
-PATH=$PATH:/opt/chefdk/bin
+PATH=$PATH:/opt/chefdk/embedded/bin:/opt/chefdk/bin
 
 # GO
 export GOPATH=~/Projects/go
@@ -91,3 +104,11 @@ PATH=$PATH:$GOPATH/bin
 # Node
 export NVM_DIR="/Users/miguelfonseca/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# Todolist
+export TODO_DB_PATH=$HOME/Dropbox/todo.json
+
+# Android
+export ANDROID_HOME=/Applications/android-sdk-macosx

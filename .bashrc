@@ -1,2 +1,25 @@
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/miguelfonseca/.travis/travis.sh ] && source /Users/miguelfonseca/.travis/travis.sh
+
+# cheat.sh completion
+_cheatsh_complete_curl()
+{
+    local cur prev opts
+    _get_comp_words_by_ref -n : cur
+
+    COMPREPLY=()
+    #cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="$(curl -s cheat.sh/:list | sed s@^@cheat.sh/@)"
+
+    if [[ ${cur} == cheat.sh/* ]] ; then
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    __ltrim_colon_completions "$cur"
+        return 0
+    fi
+}
+complete -F _cheatsh_complete_curl curl
+
