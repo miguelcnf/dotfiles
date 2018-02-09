@@ -1,7 +1,6 @@
 # Start an HTTP server from a directory
 function http_server() {
   local port="${1:-8000}"
-  open "http://localhost:$port"
   python -mSimpleHTTPServer "$port"
 }
 
@@ -59,7 +58,7 @@ export LC_ALL=en_US.UTF-8
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-PATH=$(brew --prefix)/bin:$PATH
+PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 
 # Alias
 alias grep='grep --color=auto'
@@ -112,3 +111,9 @@ export TODO_DB_PATH=$HOME/Dropbox/todo.json
 
 # Android
 export ANDROID_HOME=/Applications/android-sdk-macosx
+
+# GPG
+PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
+
+# History
+export HISTSIZE=5000
