@@ -50,6 +50,14 @@ function __kube_prompt() {
 
 alias kubeshell='export PROMPT_COMMAND=__kube_prompt'
 
+function __aws_ls() {
+  profile=$1
+  filter=$2
+  aws ec2 describe-instances --filters "Name=tag:Name,Values=$filter" --query 'Reservations[*].Instances[*].[InstanceId,State.Name,InstanceType,PrivateIpAddress,PublicIpAddress,Tags[?Key==`Name`].Value[]]' --output json --profile $profile | tr -d '\n[] "' | perl -pe 's/i-/\ni-/g' | tr ',' '\t' | sed -e 's/null/None/g' | grep '^i-' | column -t
+}
+
+alias awsls='__aws_ls $1 $2'
+
 # Locale
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
