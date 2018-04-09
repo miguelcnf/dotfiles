@@ -1,42 +1,32 @@
 # Start an HTTP server from a directory
-function server() {
+function http_server() {
   local port="${1:-8000}"
-  open "http://localhost:$port"
   python -mSimpleHTTPServer "$port"
 }
 
-# Custom prompt
-function __prompt_command() {
-  # Get last command exist status
-  local last_cmd_exit=$?
+# Prompt
+export PS1="[\u@\h\$(git-radar --bash --fetch)]$ "
 
-  # Define Colors
+function __kube_prompt() {
   local Def='\[\e[0m\]' # Default
-  local Red='\[\e[0;31m\]' # Last exit code != 0
-  local Clean='\[\e[0;36m\]' # Git repo is clean
-  local Dirty='\[\e[0;31m\]' # Git repo is dirty
+  local Clean='\[\e[0;36m\]'
 
-  # Paint the $ char based on last command exit status
-  [ $last_cmd_exit == 0 ] && local dollar="\$ " || local dollar="${Red}\$ ${Def}"
-
-  # Does current dir belongs to a git repo ?
-  git rev-parse --git-dir >/dev/null 2>&1
-  local git_repo=$?
-
-  # Run git status
-  [ $git_repo == 0 ] && local git_status=$(git status --ignore-submodules)
-
-  # Get git repo commit status
-  [ $git_repo == 0 ] && echo $git_status | grep -q "nothing to commit" && local Gitcst=$Clean || local Gitcst=$Dirty
-
-  # Get git repo push status
-  [ $git_repo == 0 ] && local Gitahead=$(echo $git_status | grep "Your branch" | grep -v "up-to-date" | sed -E 's/.*([[:digit:]]+).*/\1/')
-  [ ! -z $Gitahead ] && Gitahead=" ${Red}+${Gitahead}${Def}"
+  kube_context=$(grep current-context ~/.kube/config | awk -F ' ' '{print $2}')
 
   # Build the prompt
-  PS1="[\u@\h \W${Gitcst}$(__git_ps1)${Def}${Gitahead}]$dollar"
+  PS1="[\u@\h \W ${Clean}($kube_context)${Def}]\$ "
+  unalias kubeshell 2>/dev/null
 }
-export PROMPT_COMMAND=__prompt_command
+
+alias kubeshell='export PROMPT_COMMAND=__kube_prompt'
+
+function __aws_ls() {
+  profile=$1
+  filter=$2
+  aws ec2 describe-instances --filters "Name=tag:Name,Values=*$filter*" --query 'Reservations[*].Instances[*].[InstanceId,State.Name,InstanceType,PrivateIpAddress,PublicIpAddress,Tags[?Key==`Name`].Value[]]' --output json --profile $profile | tr -d '\n[] "' | perl -pe 's/i-/\ni-/g' | tr ',' '\t' | sed -e 's/null/None/g' | grep '^i-' | column -t
+}
+
+alias awsls='__aws_ls $1 $2'
 
 # Locale
 export LC_CTYPE=en_US.UTF-8
@@ -46,7 +36,7 @@ export LC_ALL=en_US.UTF-8
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-PATH=$(brew --prefix)/bin:$PATH
+PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 
 # Alias
 alias grep='grep --color=auto'
@@ -82,7 +72,7 @@ PATH=$PATH:~/Applications/apache-maven-3.2.3/bin
 export M2_HOME=~/Applications/apache-maven-3.2.3
 
 # ChefDK
-PATH=$PATH:/opt/chefdk/bin
+PATH=$PATH:/opt/chefdk/embedded/bin:/opt/chefdk/bin
 
 # GO
 export GOPATH=~/Projects/go
@@ -91,3 +81,17 @@ PATH=$PATH:$GOPATH/bin
 # Node
 export NVM_DIR="/Users/miguelfonseca/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# Todolist
+export TODO_DB_PATH=$HOME/Dropbox/todo.json
+
+# Android
+export ANDROID_HOME=/Applications/android-sdk-macosx
+
+# GPG
+PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
+
+# History
+export HISTSIZE=5000

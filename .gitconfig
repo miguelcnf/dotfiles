@@ -16,6 +16,7 @@
     info = remote show origin
     update = remote update origin --prune
     fetchandprune = fetch --all --prune
+    repo = "!git remote show origin | grep 'Push  URL' | awk -F ' ' '{print $3}'"
 
 [color]
     ui = auto
