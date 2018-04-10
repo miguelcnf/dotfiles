@@ -15,6 +15,7 @@ function audioDeviceChangedCallback()
     if currentDevice ~= "miguel-bose" and newDevice == "Built-in Output" and spotifyIsPlaying == true then
         hs.spotify.pause();
         hs.notify.new({title="Hammerspoon", informativeText="Paused Spotify"}):send()
+        logger.d("Paused Spotify")
     end
 
     currentDevice = newDevice
