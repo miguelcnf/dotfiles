@@ -71,44 +71,44 @@ au BufRead,BufNewFile *.json set filetype=json
 filetype plugin indent on
 
 " Pathogen
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Solarized
 "colorscheme solarized
 "set background=dark
 
 " Airline
-set laststatus=2
-let g:airline_powerline_fonts=1
+"set laststatus=2
+"let g:airline_powerline_fonts=1
 
 " Workaround for leaving insert mode delay with statusline active
-if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
+"if ! has('gui_running')
+"  set ttimeoutlen=10
+"  augroup FastEscape
+"    autocmd!
+"    au InsertEnter * set timeoutlen=0
+"    au InsertLeave * set timeoutlen=1000
+"  augroup END
+"endif
 
 " Signify
-let g:signify_vcs_list=['git','svn']
+"let g:signify_vcs_list=['git','svn']
 
 " Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_id_checkers = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_aggregate_errors = 1
+"let g:syntastic_id_checkers = 1
 " let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+"let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 
 " Supertab
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 
 " JavaScript libraries syntax
-let g:used_javascript_libs = 'angularjs'
+"let g:used_javascript_libs = 'angularjs'
 
 " Explore
-let g:netrw_liststyle=3
+"let g:netrw_liststyle=3
 
 " Ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
