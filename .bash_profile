@@ -59,6 +59,8 @@ keygen(){ perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*10000)' | s
 # GO
 export GOPATH=~/Projects/go
 PATH=$PATH:$GOPATH/bin
+# Dep
+alias depviz='dep status -dot | dot -T png | open -f -a /Applications/Preview.app'
 
 # GPG
 PATH="/usr/local/opt/gnupg@1.4/libexec/gpgbin:$PATH"
