@@ -2,6 +2,8 @@ Compression yes
 UserKnownHostsFile /Users/miguel/.ssh/known_hosts
 
 Host *
+    addkeystoagent yes
+    usekeychain yes
     stricthostkeychecking no
     userknownhostsfile /dev/null
     serveraliveinterval 60
